@@ -34,5 +34,15 @@ export class BooksService {
 
     return this.http.put(this._url + `/books/returnBook/${id}`,{} ,{headers});
   }
+
+  createBook (Name: string, Genre: string, AuthorName: string): Observable<any> {
+    const data = {Name, Genre, AuthorName};
+
+    const headers = new HttpHeaders ({
+      "Authorization": this._userService.getUserDetails().sessionToken
+    });
+
+    return this.http.post(this._url + '/books/create', data, {headers});
+  }
   
 }

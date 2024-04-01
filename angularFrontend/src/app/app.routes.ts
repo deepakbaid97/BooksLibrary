@@ -6,6 +6,7 @@ import { PageNotFoundComponentComponent } from './page-not-found-component/page-
 import { BooksComponent } from './books/books.component';
 import { ProfileComponent } from './profile/profile.component';
 import { YourBooksComponent } from './your-books/your-books.component';
+import { CreateBookComponent } from './create-book/create-book.component';
 
 export const routes: Routes = [
     { path: 'login', component: LoginComponent },
@@ -16,7 +17,8 @@ export const routes: Routes = [
         children: [
             { path: 'books', component: BooksComponent},
             { path: 'profile', component: ProfileComponent},
-            { path: 'yourBooks', component: YourBooksComponent}
+            { path: 'yourBooks', component: YourBooksComponent},
+            { path: 'createBook', component: CreateBookComponent}
         ]
     },
     { path: '**', component: PageNotFoundComponentComponent}

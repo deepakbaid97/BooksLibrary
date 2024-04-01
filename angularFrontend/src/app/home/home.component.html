@@ -3,6 +3,7 @@
         <a routerLink="/">Home</a>
         <a routerLink="/books">Books</a>
         <a routerLink="/yourBooks">Your Books</a>
+        <a routerLink="/createBook" *ngIf="showCreateBookPage">Create Book</a>
         <a routerLink="/profile">Profile</a>
     </nav>
     <button (click)="logout()">Logout</button>
