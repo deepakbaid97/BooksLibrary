@@ -1,0 +1,24 @@
+<div>
+    <div>
+        Name: {{userDetails.name}}
+    </div>
+    <div>
+        Email: {{userDetails.email}}
+    </div>
+    <form (ngSubmit)="onSubmit()">
+        <div>
+            <label for="oldPassword">Old Password</label>
+            <input type="password" id="oldPassword" name="oldPassword" [(ngModel)]="oldPassword" required>
+        </div>
+        <div>
+            <label for="newPassword">New Password</label>
+            <input type="password" id="newPassword" name="newPassword" [(ngModel)]="newPassword" required>
+        </div>
+        <div>
+            <label for="confirmNewPassword">Confirm New Password</label>
+            <input type="password" id="confirmNewPassword" name="confirmNewPassword" [(ngModel)]="confirmNewPassword" required>
+        </div>
+        <button type="submit">Change Password</button>
+        <div>{{errorMessage}}</div>
+    </form>
+</div>

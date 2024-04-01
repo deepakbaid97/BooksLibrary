@@ -1,0 +1,30 @@
+<p>books works!</p>
+<div>{{this.error}}</div>
+<div>
+    <table class="books-table">
+        <thead>
+            <th>Index</th>
+            <th>Book name</th>
+            <th>Genre</th>
+            <th>Author Name</th>
+            <th>Status</th>
+        </thead>
+        <tbody *ngFor="let item of books; index as i">
+            <tr>
+                <td>{{i}}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.genre}}</td>
+                <td>{{item.authorID}}</td>
+                <td>
+                    <button *ngIf="item.userID == this.userDetail.email; else elseBlock" (click)="returnBook(item.id)">Return Book</button>
+                    <ng-template #elseBlock>
+                        <button *ngIf="!item.userID; else renderTaken" (click)="lendBook(item.id)">Get Book</button>
+                    </ng-template>
+                    <ng-template #renderTaken>
+                        <p *ngIf="item.userID != this.userDetail.email">Already taken</p>
+                    </ng-template>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

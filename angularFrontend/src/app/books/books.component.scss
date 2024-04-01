@@ -1,0 +1,12 @@
+.books-table {
+    border: 1px solid black;
+    border-radius: 8px;
+    border-collapse: collapse;
+    thead, tr {
+        border-bottom: 1px solid black;
+    }
+
+    td, th {
+        border-right: 1px solid black;
+    }
+}
