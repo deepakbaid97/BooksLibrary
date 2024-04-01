@@ -33,9 +33,13 @@ public class BookRepository : IBookRepository
         await dbContext.SaveChangesAsync();
     }
 
-    public async Task<IEnumerable<Book>> GetAllBookAsync()
+    public async Task<IEnumerable<BookDTO>> GetAllBookAsync()
     {
-        return await dbContext.Books.AsNoTracking().ToListAsync();
+        var list = dbContext.Books.AsNoTracking();
+        var alist = dbContext.Authors.AsNoTracking();
+        return await (from l in list
+                      join author in alist on l.AuthorID equals author.ID
+                      select new BookDTO(l.ID, l.Name, l.Genre, author.Name, l.UserID)).ToListAsync();
     }
 
     public async Task<Book?> GetBookByIdAsync(string id)

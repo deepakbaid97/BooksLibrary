@@ -13,7 +13,7 @@ public static class BookEndpoint
                         .WithParameterValidation();
 
         group.MapGet("/", async (HttpContext context, IBookRepository repository) =>
-        (await repository.GetAllBookAsync()).Select(book => book.AsDto()));
+        await repository.GetAllBookAsync());
 
         group.MapPost("/create", async (HttpContext context, IBookRepository bookRepositoryrepository, IAuthorRepository authorRepository, CreateBookDTO bookDTO) =>
         {

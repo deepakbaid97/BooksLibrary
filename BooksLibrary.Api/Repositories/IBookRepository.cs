@@ -7,6 +7,6 @@ public interface IBookRepository
 {
     Task CreateBookAsync(CreateBookDTO book, IAuthorRepository authorRepository);
     Task<Book?> GetBookByIdAsync(string id);
-    Task<IEnumerable<Book>> GetAllBookAsync();
+    Task<IEnumerable<BookDTO>> GetAllBookAsync();
     Task UpdateBookAsync(Book updatedBook);
 }
