@@ -21,10 +21,17 @@ export class CreateBookComponent {
   constructor(private router: Router, private _userService: UserService, private _bookService: BooksService) {}
 
   onSubmit() {
+    if (!this.name || !this.authorName || !this.genre) {
+      this.error = "please write all in the fields";
+      return;
+    }
     this._bookService.createBook(this.name, this.genre, this.authorName)
       .subscribe(
         (response) => {
           this.error = 'Book added successfully!'
+          this.name = '';
+          this.genre = '';
+          this.authorName = '';
         }, 
         (error) => {
           this.error = error.error;
